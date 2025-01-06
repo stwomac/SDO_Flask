@@ -23,7 +23,7 @@ pipeline {
         sh '''
 
 
-source /home/ubuntu/dockerVar.sh docker login -u womackst9 -p $VAR1'''
+source . /home/ubuntu/dockerVar.sh docker login -u womackst9 -p $VAR1'''
       }
     }
 
