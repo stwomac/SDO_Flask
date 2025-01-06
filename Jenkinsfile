@@ -24,7 +24,7 @@ pipeline {
     stage('login') {
       steps {
         sh '''
-         docker login -u womackst9 -p $DPAT'''
+         docker login -u womackst9 -p ${env.DPAT_PSW}'''
       }
     }
 
