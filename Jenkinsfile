@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('test') {
+    stage('git') {
       steps {
         git(url: 'https://github.com/stwomac/SDO_Flask', branch: 'main')
       }
@@ -9,7 +9,7 @@ pipeline {
 
     stage('build') {
       steps {
-        sh 'docker build -t womackst9/flask_app'
+        sh 'docker build -t womackst9/flask_app .'
       }
     }
 
