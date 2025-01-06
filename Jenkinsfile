@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('build') {
+      steps {
+        sh 'docker build -t womackst9/flask_app'
+      }
+    }
+
   }
 }
