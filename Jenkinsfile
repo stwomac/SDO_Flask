@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        echo 'test'
+        git(url: 'https://github.com/stwomac/SDO_Flask', branch: 'main')
       }
     }
 
