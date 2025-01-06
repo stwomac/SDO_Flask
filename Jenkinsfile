@@ -5,6 +5,9 @@ pipeline {
     }
 
   }
+  environment {
+    DPAT = credentials('docker')
+  }
   stages {
     stage('git') {
       steps {
@@ -21,9 +24,7 @@ pipeline {
     stage('login') {
       steps {
         sh '''
-
-
-source . /home/ubuntu/dockerVar.sh docker login -u womackst9 -p $VAR1'''
+         docker login -u womackst9 -p $DPAT'''
       }
     }
 
