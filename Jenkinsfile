@@ -20,7 +20,10 @@ pipeline {
 
     stage('login') {
       steps {
-        sh 'docker login -u womackst9 '
+        sh '''
+
+
+source /home/ubuntu/dockerVar.sh docker login -u womackst9 -p $VAR1'''
       }
     }
 
