@@ -18,9 +18,9 @@ pipeline {
       }
     }
 
-    stage('login') {
+    stage('') {
       steps {
-        echo 'wat'
+        sh 'docker push womackst9/flask_app'
       }
     }
 
