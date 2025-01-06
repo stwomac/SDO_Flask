@@ -18,5 +18,11 @@ pipeline {
       }
     }
 
+    stage('login') {
+      steps {
+        echo 'wat'
+      }
+    }
+
   }
 }
