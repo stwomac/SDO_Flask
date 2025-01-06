@@ -5,9 +5,7 @@ pipeline {
     }
 
   }
-  environment {
-    DPAT = credentials('docker')
-  }
+  
   stages {
     stage('git') {
       steps {
@@ -23,8 +21,11 @@ pipeline {
 
     stage('login') {
       steps {
-        sh '''
-         docker login -u womackst9 -p ${env.DPAT_PSW}'''
+         withCredentials([usernamePassword(credentialsId: 'docker')]) {
+        
+            sh '''
+           docker login -u womackst9 -p ${env.PASSWORD}'''
+        }
       }
     }
 
