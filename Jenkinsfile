@@ -21,7 +21,7 @@ pipeline {
 
     stage('login') {
       steps {
-         withCredentials([usernamePassword(credentialsId: 'docker')]) {
+         withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
         
             sh '''
            docker login -u womackst9 -p ${env.PASSWORD}'''
