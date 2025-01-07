@@ -24,7 +24,7 @@ pipeline {
          withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
         
             sh '''
-           docker login -u womackst9 -p ${env.PASSWORD}'''
+           docker login -u womackst9 -p $PASSWORD'''
         }
       }
     }
