@@ -5,7 +5,6 @@ pipeline {
     }
 
   }
-  
   stages {
     stage('git') {
       steps {
@@ -21,11 +20,17 @@ pipeline {
 
     stage('login') {
       steps {
-         withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-        
-            sh '''
+        withCredentials(bindings: [usernamePassword(credentialsId: 'docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+          sh '''
            docker login -u womackst9 -p $PASSWORD'''
         }
+
+      }
+    }
+
+    stage('push') {
+      steps {
+        sh 'docker push womackst9/flask_app'
       }
     }
 
